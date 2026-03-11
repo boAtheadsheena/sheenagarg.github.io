@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary SEO Meta Tags -->
+    <title>Sheena Garg | Senior Technical Lead & E-Commerce Architect</title>
+    <meta name="title" content="Sheena Garg | Senior Technical Lead & E-Commerce Architect">
+    <meta name="description" content="Portfolio of Sheena Garg, a Senior Technical Lead and Shopify Plus Developer with 8+ years of experience in building scalable e-commerce solutions, headless web applications, and leading agile engineering teams.">
+    <meta name="keywords" content="Sheena Garg, Technical Lead, Shopify Plus Developer, Frontend Architecture, React.js, Next.js, Headless Commerce, Web Development, boAt Lifestyle, Delhi NCR, Software Engineer">
+    <meta name="author" content="Sheena Garg">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sheenagarg.github.io/"> <!-- Replace with your actual domain later -->
+
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sheenagarg.github.io/">
+    <meta property="og:title" content="Sheena Garg | Senior Technical Lead">
+    <meta property="og:description" content="Technical Lead with 8+ years of experience scaling digital storefronts, optimizing performance, and building modern web ecosystems.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80"> <!-- Placeholder tech image for social sharing -->
+
+    <!-- JSON-LD Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sheena Garg",
+      "jobTitle": "Senior Technical Lead",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "boAt Lifestyle"
+      },
+      "url": "https://sheenagarg.com",
+      "sameAs":[
+        "https://www.linkedin.com/in/sheenagarg20",
+        "https://github.com/sheenagarg"
+      ],
+      "alumniOf": "P.D.M. College of Engineering",
+      "knowsAbout":["Shopify Plus", "React.js", "Headless Commerce", "Web Performance Optimization", "Frontend Architecture", "Agile Leadership"]
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        mono:['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: '#050505',
+                        darker: '#020202',
+                        brand: {
+                            light: '#2dd4bf', // Teal 400
+                            DEFAULT: '#0d9488', // Teal 600
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #050505; color: #e2e8f0; overflow-x: hidden; cursor: none; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2dd4bf; }
+
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+            border-radius: 50%; z-index: 9999; pointer-events: none;
+        }
+        .cursor-dot { width: 8px; height: 8px; background-color: #2dd4bf; }
+        .cursor-outline { width: 40px; height: 40px; border: 2px solid rgba(45, 212, 191, 0.5); transition: width 0.2s, height 0.2s, background-color 0.2s; }
+        .cursor-hover { width: 60px; height: 60px; background-color: rgba(45, 212, 191, 0.1); border-color: #2dd4bf; }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-gradient { background: linear-gradient(to right, #2dd4bf, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(to right, #2dd4bf, #3b82f6); z-index: 10000; width: 0%; }
+        
+        .blob { position: absolute; filter: blur(120px); z-index: -1; opacity: 0.3; animation: float 10s infinite ease-in-out alternate; }
+        @keyframes float { 0% { transform: translate(0, 0) scale(1); } 100% { transform: translate(30px, -50px) scale(1.1); } }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-light selection:text-darker">
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <div class="blob bg-brand-light w-96 h-96 rounded-full top-0 left-[-10%]"></div>
+    <div class="blob bg-blue-600 w-96 h-96 rounded-full bottom-0 right-[-10%] delay-1000"></div>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="fixed w-full glass-card z-50 py-4 transition-all duration-300" id="navbar" aria-label="Main Navigation">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+                <a href="#" class="text-2xl font-black tracking-tighter text-white interactive-element" aria-label="Home">
+                    SG<span class="text-brand-light">.</span>
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm font-medium text-gray-300 hover:text-brand-light transition-colors interactive-element">About</a>
+                    <a href="#skills" class="text-sm font-medium text-gray-300 hover:text-brand-light transition-colors interactive-element">Expertise</a>
+                    <a href="#projects" class="text-sm font-medium text-gray-300 hover:text-brand-light transition-colors interactive-element">Projects</a>
+                    <a href="#experience" class="text-sm font-medium text-gray-300 hover:text-brand-light transition-colors interactive-element">Experience</a>
+                </div>
+                <a href="mailto:sheenagarg17@gmail.com" class="hidden md:block px-5 py-2 rounded-full border border-brand-light text-brand-light hover:bg-brand-light hover:text-darker transition-all text-sm font-bold interactive-element" aria-label="Contact Sheena">
+                    Let's Talk
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full z-10 relative">
+                <div class="max-w-4xl">
+                    <div class="gsap-hero opacity-0 translate-y-10">
+                        <p class="text-brand-light font-mono text-lg mb-4 flex items-center gap-2">
+                            <i class="fas fa-terminal"></i> Hi, my name is
+                        </p>
+                    </div>
+                    <div class="gsap-hero opacity-0 translate-y-10">
+                        <h1 class="text-6xl md:text-8xl font-black text-white mb-2 tracking-tight">Sheena Garg.</h1>
+                    </div>
+                    <div class="gsap-hero opacity-0 translate-y-10">
+                        <h2 class="text-4xl md:text-6xl font-bold text-gray-400 mb-6 tracking-tight h-[120px] md:h-[80px]">
+                            I architect <span class="text-gradient" id="typed-text"></span>
+                        </h2>
+                    </div>
+                    <div class="gsap-hero opacity-0 translate-y-10">
+                        <p class="text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed">
+                            A Senior Technical Lead with <strong>8+ years</strong> of expertise in scaling high-traffic digital storefronts, optimizing Web Vitals, and leading agile engineering teams to deliver multi-million dollar e-commerce ecosystems.
+                        </p>
+                    </div>
+                    <div class="gsap-hero opacity-0 translate-y-10 flex flex-wrap gap-5">
+                        <a href="#projects" class="px-8 py-4 bg-brand-light text-darker font-bold rounded-lg hover:shadow-[0_0_20px_rgba(45,212,191,0.4)] transition-all interactive-element flex items-center gap-2" aria-label="View Projects">
+                            View Impact <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sheenagarg20" target="_blank" rel="noopener noreferrer" class="px-8 py-4 glass-card text-white font-bold rounded-lg hover:border-brand-light transition-all interactive-element flex items-center gap-2" aria-label="LinkedIn Profile">
+                            <i class="fab fa-linkedin text-xl text-brand-light"></i> Connect
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="gsap-title flex items-center gap-4 mb-16">
+                    <span class="text-brand-light font-mono text-xl">01.</span>
+                    <h2 class="text-4xl font-bold text-white">Executive Summary</h2>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 max-w-xs"></div>
+                </div>
+
+                <div class="grid md:grid-cols-12 gap-12">
+                    <div class="md:col-span-7 gsap-fade-up">
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            Currently serving as the Technical Lead for <span class="text-white font-semibold">boAt Lifestyle's D2C operations</span>, I orchestrate the architecture and technical developments for one of India's highest-traffic e-commerce platforms. 
+                        </p>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            My philosophy revolves around creating frictionless user experiences backed by robust, scalable code. I champion <span class="text-brand-light">performance optimization</span>—successfully reducing enterprise site load times by 50%—while establishing strict code hygiene through advanced CI/CD pipelines.
+                        </p>
+                        <p class="text-gray-400 text-lg leading-relaxed">
+                            Beyond code, my strength lies in bridging the gap between engineering and business. I manage cross-functional scrum teams, educate stakeholders on CMS capabilities, and ensure that every sprint translates to measurable revenue growth and enhanced UX.
+                        </p>
+                    </div>
+                    <div class="md:col-span-5 gsap-fade-up">
+                        <div class="glass-card p-8 rounded-2xl relative group interactive-element" data-tilt data-tilt-max="3" data-tilt-speed="400">
+                            <h3 class="text-xl font-bold text-white mb-6 border-b border-gray-700 pb-4">Leadership DNA</h3>
+                            <ul class="space-y-5 font-mono text-sm text-gray-300">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-server text-brand-light mt-1"></i>
+                                    <span><strong>System Architecture:</strong> Designing scalable, headless, and API-first e-commerce solutions.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-stopwatch text-brand-light mt-1"></i>
+                                    <span><strong>Performance Obsession:</strong> Core Web Vitals, payload optimization, and caching strategies.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-users-cog text-brand-light mt-1"></i>
+                                    <span><strong>Agile Execution:</strong> JIRA administration, sprint planning, and team mentorship.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Arsenal Section -->
+        <section id="skills" class="py-24 relative bg-darker border-y border-gray-900">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="gsap-title flex items-center gap-4 mb-16">
+                    <span class="text-brand-light font-mono text-xl">02.</span>
+                    <h2 class="text-4xl font-bold text-white">Technical Arsenal</h2>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 max-w-xs"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Advanced E-Commerce -->
+                    <div class="glass-card p-8 rounded-2xl gsap-skill-card interactive-element" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="w-12 h-12 bg-brand-light/10 rounded-xl flex items-center justify-center text-brand-light text-2xl mb-6 border border-brand-light/20">
+                            <i class="fab fa-shopify"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">E-Commerce Architecture</h3>
+                        <p class="text-gray-400 text-sm mb-6">Building conversion-optimized, high-availability digital storefronts.</p>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1 bg-brand-light/20 text-brand-light rounded-full">Shopify Plus</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">Headless Commerce</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">Liquid</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">Storefront API</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">Custom Theme Dev</span>
+                        </div>
+                    </div>
+
+                    <!-- Modern Frontend Ecosystem -->
+                    <div class="glass-card p-8 rounded-2xl gsap-skill-card interactive-element" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 text-2xl mb-6 border border-blue-500/20">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Frontend Engineering</h3>
+                        <p class="text-gray-400 text-sm mb-6">Crafting interactive, accessible, and pixel-perfect UI/UX experiences.</p>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full">React.js & Next.js</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">TypeScript / ES6+</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">Tailwind CSS</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">HTML5 & CSS3</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">AJAX / Fetch</span>
+                        </div>
+                    </div>
+
+                    <!-- Ops & Analytics -->
+                    <div class="glass-card p-8 rounded-2xl gsap-skill-card interactive-element" data-tilt data-tilt-max="5" data-tilt-glare data-tilt-max-glare="0.1">
+                        <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 text-2xl mb-6 border border-purple-500/20">
+                            <i class="fas fa-chart-network"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Ops & Analytics</h3>
+                        <p class="text-gray-400 text-sm mb-6">Data-driven decision making, CI/CD, and project management.</p>
+                        <div class="flex flex-wrap gap-2 font-mono text-xs">
+                            <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full">Google Analytics (GA)</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">GTM</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">CleverTap & Netcore</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">Jira & Monday</span>
+                            <span class="px-3 py-1 bg-gray-800 text-gray-300 rounded-full">GitHub Actions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section id="projects" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="gsap-title flex items-center gap-4 mb-16">
+                    <span class="text-brand-light font-mono text-xl">03.</span>
+                    <h2 class="text-4xl font-bold text-white">Featured Architectures</h2>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 max-w-xs"></div>
+                </div>
+
+                <div class="space-y-12">
+                    <!-- boAt D2C -->
+                    <div class="glass-card p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-8 gsap-project hover:border-brand-light/40 transition-colors">
+                        <div class="md:w-1/3">
+                            <h3 class="text-2xl font-black text-white mb-2">boAt D2C Ecosystem</h3>
+                            <p class="text-brand-light font-mono text-sm mb-4">E-Commerce Flagship • Shopify Plus</p>
+                            <div class="flex flex-wrap gap-2 font-mono text-xs mb-6">
+                                <span class="px-2 py-1 bg-gray-800 rounded">Performance Tuning</span>
+                                <span class="px-2 py-1 bg-gray-800 rounded">API Integrations</span>
+                                <span class="px-2 py-1 bg-gray-800 rounded">UI/UX</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Spearheaded the complete technical oversight for India's leading audio brand's direct-to-consumer platform. Managed cross-functional agency communications to translate business requirements into flawless engineering deliverables.
+                            </p>
+                            <ul class="list-none space-y-2 text-gray-300 text-sm">
+                                <li><i class="fas fa-check text-brand-light mr-2"></i> <strong>Performance:</strong> Achieved a massive 50% reduction in site load times (16s down to 8s), drastically improving SEO and conversion rates.</li>
+                                <li><i class="fas fa-check text-brand-light mr-2"></i> <strong>Scale:</strong> Architected and launched 3 completely new, specialized domains on the Shopify Plus infrastructure.</li>
+                                <li><i class="fas fa-check text-brand-light mr-2"></i> <strong>Hygiene:</strong> Established strict GitHub merging protocols, reducing production bugs to near zero.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- thesqua.re -->
+                    <div class="glass-card p-8 md:p-10 rounded-2xl flex flex-col md:flex-row gap-8 gsap-project hover:border-blue-500/40 transition-colors">
+                        <div class="md:w-1/3">
+                            <h3 class="text-2xl font-black text-white mb-2">thesqua.re Suite</h3>
+                            <p class="text-blue-400 font-mono text-sm mb-4">Hospitality Tech • Frontend Arch</p>
+                            <div class="flex flex-wrap gap-2 font-mono text-xs mb-6">
+                                <span class="px-2 py-1 bg-gray-800 rounded">Responsive Design</span>
+                                <span class="px-2 py-1 bg-gray-800 rounded">Dashboard UI</span>
+                                <span class="px-2 py-1 bg-gray-800 rounded">Email Dev</span>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3">
+                            <p class="text-gray-400 mb-4 leading-relaxed">
+                                Engineered a suite of highly interactive, responsive web applications for global serviced apartments, focusing on user-centric booking flows and internal dashboards.
+                            </p>
+                            <ul class="list-none space-y-2 text-gray-300 text-sm">
+                                <li><i class="fas fa-check text-blue-400 mr-2"></i> <strong>Products Delivered:</strong> Built the core <em>thesqua.re</em> platform, <em>A Perfect Stay</em>, <em>Ovington Finance</em>, and <em>Citygrade</em> sites from the ground up.</li>
+                                <li><i class="fas fa-check text-blue-400 mr-2"></i> <strong>Internal Tools:</strong> Developed a Self-Booking Tool and an Enquiry App Dashboard, streamlining operational efficiency.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="py-24 relative bg-darker border-t border-gray-900">
+            <div class="max-w-5xl mx-auto px-6 lg:px-8">
+                <div class="gsap-title flex items-center gap-4 mb-20">
+                    <span class="text-brand-light font-mono text-xl">04.</span>
+                    <h2 class="text-4xl font-bold text-white">Career Progression</h2>
+                    <div class="h-[1px] bg-gray-800 flex-grow ml-4 max-w-xs"></div>
+                </div>
+
+                <div class="relative wrap overflow-hidden">
+                    <div class="absolute border-opacity-20 border-gray-500 h-full border" style="left: 50%;"></div>
+
+                    <!-- Lead @ boAt -->
+                    <div class="mb-12 flex justify-between items-center w-full gsap-timeline-item">
+                        <div class="order-1 w-5/12 text-right pr-8">
+                            <p class="mb-1 text-brand-light font-mono text-sm">Jul 2022 - Present</p>
+                            <h3 class="font-bold text-xl text-white">Technical Lead</h3>
+                            <h4 class="text-gray-400 font-medium mb-3">boAt Lifestyle</h4>
+                            <p class="text-sm text-gray-500">Leading enterprise D2C developments, defining technical strategy, managing engineering resources via Jira, and ensuring seamless deployment cycles.</p>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-darker shadow-xl w-8 h-8 rounded-full border-4 border-brand-light"></div>
+                        <div class="order-1 w-5/12 px-6 py-4"></div>
+                    </div>
+
+                    <!-- Sr Dev @ boAt -->
+                    <div class="mb-12 flex justify-between items-center w-full gsap-timeline-item">
+                        <div class="order-1 w-5/12 px-6 py-4"></div>
+                        <div class="z-20 flex items-center order-1 bg-darker shadow-xl w-8 h-8 rounded-full border-4 border-gray-600"></div>
+                        <div class="order-1 w-5/12 pl-8">
+                            <p class="mb-1 text-brand-light font-mono text-sm">Apr 2021 - Jul 2022</p>
+                            <h3 class="font-bold text-xl text-white">Sr Tech Developer</h3>
+                            <h4 class="text-gray-400 font-medium mb-3">boAt Lifestyle</h4>
+                            <p class="text-sm text-gray-500">Mentored merchandising teams on platform capabilities. Converted raw designs into high-fidelity, pixel-perfect Shopify themes.</p>
+                        </div>
+                    </div>
+
+                    <!-- Dev @ boAt -->
+                    <div class="mb-12 flex justify-between items-center w-full gsap-timeline-item">
+                        <div class="order-1 w-5/12 text-right pr-8">
+                            <p class="mb-1 text-brand-light font-mono text-sm">Apr 2020 - May 2021</p>
+                            <h3 class="font-bold text-xl text-white">Web Developer</h3>
+                            <h4 class="text-gray-400 font-medium mb-3">boAt Lifestyle</h4>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-darker shadow-xl w-8 h-8 rounded-full border-4 border-gray-600"></div>
+                        <div class="order-1 w-5/12 px-6 py-4"></div>
+                    </div>
+
+                    <!-- thesqua.re -->
+                    <div class="mb-12 flex justify-between items-center w-full gsap-timeline-item">
+                        <div class="order-1 w-5/12 px-6 py-4"></div>
+                        <div class="z-20 flex items-center order-1 bg-darker shadow-xl w-8 h-8 rounded-full border-4 border-gray-600"></div>
+                        <div class="order-1 w-5/12 pl-8">
+                            <p class="mb-1 text-brand-light font-mono text-sm">Apr 2018 - Apr 2020</p>
+                            <h3 class="font-bold text-xl text-white">Frontend Developer</h3>
+                            <h4 class="text-gray-400 font-medium mb-3">thesqua.re</h4>
+                        </div>
+                    </div>
+
+                    <!-- Mobikasa -->
+                    <div class="mb-12 flex justify-between items-center w-full gsap-timeline-item">
+                        <div class="order-1 w-5/12 text-right pr-8">
+                            <p class="mb-1 text-brand-light font-mono text-sm">Feb 2017 - Mar 2018</p>
+                            <h3 class="font-bold text-xl text-white">Frontend Developer</h3>
+                            <h4 class="text-gray-400 font-medium mb-3">Mobikasa</h4>
+                            <p class="text-sm text-gray-500">Initiated career building dynamic Shopify & WordPress sites utilizing jQuery, Bootstrap, and core JS.</p>
+                        </div>
+                        <div class="z-20 flex items-center order-1 bg-darker shadow-xl w-8 h-8 rounded-full border-4 border-gray-600"></div>
+                        <div class="order-1 w-5/12 px-6 py-4"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Awards Section -->
+        <section id="education" class="py-24 relative">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 gap-12">
+                    
+                    <!-- Certs & Edu -->
+                    <div class="gsap-fade-up">
+                        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                            <i class="fas fa-graduation-cap text-brand-light"></i> Education & Credentials
+                        </h2>
+                        
+                        <div class="glass-card p-8 rounded-xl mb-6">
+                            <h3 class="text-lg font-bold text-white">B.Tech, Computer Science</h3>
+                            <p class="text-gray-400 text-sm">P.D.M. College of Engineering, Bahadurgarh</p>
+                            <p class="text-brand-light font-mono text-xs mt-2">2012 - 2016</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="glass-card p-5 rounded-xl border-l-2 border-brand-light">
+                                <i class="fas fa-database text-gray-500 mb-2 text-xl"></i>
+                                <h4 class="text-white text-sm font-bold">ORACLE Database</h4>
+                                <p class="text-gray-500 text-xs mt-1">CETPA INFOTECH</p>
+                            </div>
+                            <div class="glass-card p-5 rounded-xl border-l-2 border-brand-light">
+                                <i class="fas fa-sync text-gray-500 mb-2 text-xl"></i>
+                                <h4 class="text-white text-sm font-bold">Scrum Methodology</h4>
+                                <p class="text-gray-500 text-xs mt-1">Agile Frameworks</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Awards -->
+                    <div class="gsap-fade-up">
+                        <h2 class="text-3xl font-bold text-white mb-8 flex items-center gap-3">
+                            <i class="fas fa-trophy text-yellow-500"></i> Industry Recognition
+                        </h2>
+                        
+                        <div class="space-y-4">
+                            <div class="glass-card p-6 rounded-xl flex items-start gap-5 hover:border-yellow-500/50 transition-colors">
+                                <div class="bg-yellow-500/10 p-3 rounded-full text-yellow-500">
+                                    <i class="fas fa-star text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Digital Star of the Month</h3>
+                                    <p class="text-gray-400 text-sm mt-2">Awarded for consistent delivery of high-quality, bug-free production code and outstanding technical leadership under strict deadlines.</p>
+                                </div>
+                            </div>
+
+                            <div class="glass-card p-6 rounded-xl flex items-start gap-5 hover:border-brand-light/50 transition-colors">
+                                <div class="bg-brand-light/10 p-3 rounded-full text-brand-light">
+                                    <i class="fas fa-award text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">D2C Star</h3>
+                                    <p class="text-gray-400 text-sm mt-2">Recognized for architecting and optimizing the direct-to-consumer platform, directly impacting user engagement and digital revenue streams.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-900 bg-darker text-center">
+        <h2 class="text-3xl font-black text-white mb-6">Let's Build Something Scalable.</h2>
+        <div class="flex justify-center gap-6 mb-8">
+            <a href="mailto:sheenagarg17@gmail.com" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-brand-light hover:border-brand-light transition-all interactive-element" aria-label="Email Sheena">
+                <i class="fas fa-envelope text-xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/sheenagarg20" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-brand-light hover:border-brand-light transition-all interactive-element" aria-label="LinkedIn Profile">
+                <i class="fab fa-linkedin text-xl"></i>
+            </a>
+            <a href="https://github.com/sheenagarg" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full glass-card flex items-center justify-center text-gray-400 hover:text-brand-light hover:border-brand-light transition-all interactive-element" aria-label="GitHub Profile">
+                <i class="fab fa-github text-xl"></i>
+            </a>
+        </div>
+        <p class="text-gray-600 font-mono text-sm">
+            &copy; <span id="year"></span> Sheena Garg. Technical Lead & Developer.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.16/typed.umd.js"></script>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Custom Cursor Logic
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorOutline = document.getElementById('cursorOutline');
+        const interactiveElements = document.querySelectorAll('.interactive-element, a, button');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            cursorDot.style.left = `${posX}px`; cursorDot.style.top = `${posY}px`;
+            cursorOutline.animate({ left: `${posX}px`, top: `${posY}px` }, { duration: 500, fill: "forwards" });
+        });
+
+        interactiveElements.forEach((el) => {
+            el.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('cursor-hover');
+                cursorDot.style.backgroundColor = 'transparent';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('cursor-hover');
+                cursorDot.style.backgroundColor = '#2dd4bf';
+            });
+        });
+
+        // Scroll Progress & Navbar Glass Effect
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById('scrollProgress').style.width = ((scrollTop / scrollHeight) * 100) + '%';
+            
+            const navbar = document.getElementById('navbar');
+            if(scrollTop > 50) {
+                navbar.classList.add('shadow-lg', 'bg-darker/90', 'backdrop-blur-md');
+                navbar.classList.remove('py-4'); navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('shadow-lg', 'bg-darker/90', 'backdrop-blur-md');
+                navbar.classList.add('py-4'); navbar.classList.remove('py-2');
+            }
+        });
+
+        // Typed.js Initialization
+        new Typed('#typed-text', {
+            strings:['e-commerce solutions.', 'high-performance UIs.', 'scalable platforms.', 'agile workflows.'],
+            typeSpeed: 60, backSpeed: 40, backDelay: 2000, loop: true, showCursor: true, cursorChar: '|'
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(".gsap-hero", { y: 0, opacity: 1, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.2 });
+
+        gsap.utils.toArray('.gsap-title').forEach(title => {
+            gsap.from(title, { scrollTrigger: { trigger: title, start: "top 85%" }, x: -50, opacity: 0, duration: 0.8, ease: "power2.out" });
+        });
+
+        gsap.utils.toArray('.gsap-fade-up').forEach(elem => {
+            gsap.from(elem, { scrollTrigger: { trigger: elem, start: "top 85%" }, y: 40, opacity: 0, duration: 0.8, ease: "power2.out" });
+        });
+
+        gsap.from(".gsap-skill-card", {
+            scrollTrigger: { trigger: "#skills", start: "top 75%" }, y: 50, opacity: 0, duration: 0.8, stagger: 0.2, ease: "back.out(1.2)"
+        });
+
+        gsap.from(".gsap-project", {
+            scrollTrigger: { trigger: "#projects", start: "top 80%" }, y: 40, opacity: 0, duration: 0.8, stagger: 0.3, ease: "power2.out"
+        });
+
+        gsap.utils.toArray('.gsap-timeline-item').forEach((item, i) => {
+            const direction = i % 2 === 0 ? -40 : 40; 
+            gsap.from(item, { scrollTrigger: { trigger: item, start: "top 85%" }, x: direction, opacity: 0, duration: 0.8, ease: "power2.out" });
+        });
+    </script>
+</body>
+</html>
